@@ -3,8 +3,8 @@ spring:
     name: customerservice
   data:
     mongodb:
-      # uri: mongodb://mongodb:27017/customerService
-      uri:mongodb+srv://appsharecare:appsharecare@derma-care-db.kgt2dkd.mongodb.net/customerService?retryWrites=true&w=majority
+      uri: mongodb://mongodb:27017/customerService
+      # uri:mongodb+srv://appsharecare:appsharecare@derma-care-db.kgt2dkd.mongodb.net/customerService?retryWrites=true&w=majority
  
 server:
   port: 8083
