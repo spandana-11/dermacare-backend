@@ -7,7 +7,8 @@ spring:
     name: bookingservice
   data:
     mongodb:
-      uri: mongodb://mongodb:27017/customerAppointments
+      # uri: mongodb://mongodb:27017/customerAppointments
+       uri: mongodb+srv://appsharecare:appsharecare@derma-care-db.kgt2dkd.mongodb.net/customerAppointments?retryWrites=true&w=majority
   kafka:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
