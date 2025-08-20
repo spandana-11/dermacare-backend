@@ -2,7 +2,8 @@ name: Deploy to Lightsail
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main   # pipeline runs automatically on push to main
 
 jobs:
   deploy:
@@ -19,13 +20,12 @@ jobs:
 
       - name: Deploy on Lightsail
         env:
-          HOST: ${{ secrets.LIGHTSAIL_HOST }}     # e.g. 35.154.xx.xx
-          USER: ${{ secrets.LIGHTSAIL_USER }}     # usually 'ubuntu'
-          DIR:  ${{ secrets.PROJECT_DIR }}        # e.g. /home/ubuntu/your-project-directory
+          HOST: ${{ secrets.LIGHTSAIL_HOST }}
+          USER: ${{ secrets.LIGHTSAIL_USER }}
         run: |
           ssh -o StrictHostKeyChecking=no ${USER}@${HOST} << 'EOF'
             set -e
-            cd "$DIR"
+            cd /home/ubuntu/dermacare-backend   # 👈 your actual project path
 
             # Stop old containers
             docker compose down
